@@ -20,7 +20,6 @@ const MoviePage = () => {
     if (jsonMovies.includes(id) === false) {
       jsonMovies.push(id);
       localStorage.setItem("movies", JSON.stringify(jsonMovies));
-
       if (
         Swal.fire({
           title: `${movie.original_title} was added to favorites`,
@@ -110,9 +109,10 @@ const MoviePage = () => {
       )}
 
       {buttonType === "Save" ? (
-        <button onClick={() => saveMovie(matchID)}>Save</button>
+        <img src="https://cdn2.iconfinder.com/data/icons/atrous/512/floppy_disk_save-512.png" style={{ maxHeight: "30px" }} onClick={() => saveMovie(matchID)} />
       ) : (
-        <button onClick={() => saveMovie(matchID)}>Remove</button>
+        <img src="https://cdn4.iconfinder.com/data/icons/icocentre-free-icons/114/f-cross_256-512.png" style={{ maxHeight: "30px" }} onClick={() => saveMovie(matchID)} />
+        //<button onClick={() => saveMovie(matchID)}>Remove</button>
       )}
     </Layout>
   );
