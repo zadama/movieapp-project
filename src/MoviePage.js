@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Layout from "./layout";
 
-import { useRouteMatch, Link } from "react-router-dom";
+import { useRouteMatch } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const MoviePage = () => {
@@ -23,7 +23,6 @@ const MoviePage = () => {
       if (
         Swal.fire({
           title: `${movie.original_title} was added to favorites`,
-          type: "success",
           text: "Your changes have been saved."
         })
       ) {
@@ -109,10 +108,9 @@ const MoviePage = () => {
       )}
 
       {buttonType === "Save" ? (
-        <img src="https://cdn2.iconfinder.com/data/icons/atrous/512/floppy_disk_save-512.png" style={{ maxHeight: "30px" }} onClick={() => saveMovie(matchID)} />
+        <img src="https://cdn2.iconfinder.com/data/icons/atrous/512/floppy_disk_save-512.png" alt="Save" style={{ maxHeight: "30px" }} onClick={() => saveMovie(matchID)} />
       ) : (
-        <img src="https://cdn4.iconfinder.com/data/icons/icocentre-free-icons/114/f-cross_256-512.png" style={{ maxHeight: "30px" }} onClick={() => saveMovie(matchID)} />
-        //<button onClick={() => saveMovie(matchID)}>Remove</button>
+        <img src="https://cdn4.iconfinder.com/data/icons/icocentre-free-icons/114/f-cross_256-512.png" alt="Remove" style={{ maxHeight: "30px" }} onClick={() => saveMovie(matchID)} />
       )}
     </Layout>
   );
