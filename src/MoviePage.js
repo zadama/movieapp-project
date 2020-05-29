@@ -4,6 +4,9 @@ import Layout from "./layout";
 import { useRouteMatch } from "react-router-dom";
 import Swal from "sweetalert2";
 
+import RemoveImg from "./remove-movie.webp";
+import SaveImg from "./save-movie.png";
+
 const MoviePage = () => {
   const match = useRouteMatch();
   const matchID = match.params.id;
@@ -46,6 +49,10 @@ const MoviePage = () => {
 
   const updateButtonType = () => {
     let jsonMovies = JSON.parse(localStorage.getItem("movies"));
+
+    if (!jsonMovies) {
+      return;
+    }
 
     if (jsonMovies.includes(matchID)) {
       setButtonType("Remove");
@@ -103,14 +110,35 @@ const MoviePage = () => {
             </p>
 
             <p>Release date: {movie.release_date}</p>
+
+            {buttonType === "Save" ? (
+              <img
+                src={SaveImg}
+                alt="Save"
+                style={{
+                  maxHeight: "30px",
+                  cursor: "pointer",
+                  paddingTop: "20px",
+                  marginTop: "auto",
+                  alignSelf: "flex-start"
+                }}
+                onClick={() => saveMovie(matchID)}
+              />
+            ) : (
+              <img
+                src={RemoveImg}
+                alt="Remove"
+                style={{
+                  maxHeight: "30px",
+                  cursor: "pointer",
+                  marginTop: "auto",
+                  alignSelf: "flex-start"
+                }}
+                onClick={() => saveMovie(matchID)}
+              />
+            )}
           </div>
         </div>
-      )}
-
-      {buttonType === "Save" ? (
-        <img src="https://cdn2.iconfinder.com/data/icons/atrous/512/floppy_disk_save-512.png" alt="Save" style={{ maxHeight: "30px" }} onClick={() => saveMovie(matchID)} />
-      ) : (
-        <img src="https://cdn4.iconfinder.com/data/icons/icocentre-free-icons/114/f-cross_256-512.png" alt="Remove" style={{ maxHeight: "30px" }} onClick={() => saveMovie(matchID)} />
       )}
     </Layout>
   );

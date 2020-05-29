@@ -24,6 +24,10 @@ const SavedMoviesPage = () => {
     let movieIDs = JSON.parse(localStorage.getItem("movies"));
     let moviesArr = [];
 
+    if (!movieIDs) {
+      return;
+    }
+
     async function fetchData() {
       for (let i = 0; i < movieIDs.length; i++) {
         let movieData = await getData(movieIDs[i]);

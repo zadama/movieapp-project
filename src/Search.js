@@ -21,19 +21,17 @@ const Search = ({ updateSearch }) => {
 
   return (
     <form className="search-form" onSubmit={handleSubmit}>
-      <div>
-        <input
-          placeholder="Sök film"
-          className="search-input"
-          name="movie"
-          type="text"
-          onChange={handleSearchChange}
-          value={search}
-        ></input>
-        <button type="submit" className="search-button">
-          Search
-        </button>
-      </div>
+      <input
+        placeholder="Sök film"
+        className="search-input"
+        name="movie"
+        type="text"
+        onChange={handleSearchChange}
+        value={search}
+      ></input>
+      <button type="submit" className="search-button">
+        Search
+      </button>
     </form>
   );
 };
