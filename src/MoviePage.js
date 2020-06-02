@@ -16,6 +16,8 @@ const MoviePage = () => {
   const [movieLoaded, setMovieLoaded] = useState(false);
   const [buttonType, setButtonType] = useState("Save");
 
+  const saveText = 'Your changes have been saved.';
+
   const saveMovie = id => {
     let jsonMovies = JSON.parse(localStorage.getItem("movies"));
     if (Array.isArray(jsonMovies) === false) jsonMovies = [];
@@ -26,7 +28,7 @@ const MoviePage = () => {
       if (
         Swal.fire({
           title: `${movie.original_title} was added to favorites`,
-          text: "Your changes have been saved."
+          text: saveText
         })
       ) {
       }
@@ -38,7 +40,7 @@ const MoviePage = () => {
         Swal.fire({
           icon: "error",
           title: `${movie.original_title} was removed from favorites`,
-          text: "Your changes have been saved."
+          text: saveText
         })
       ) {
       }
