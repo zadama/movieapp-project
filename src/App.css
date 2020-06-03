@@ -101,15 +101,12 @@ nav a {
 .movie-page {
   display: flex;
   flex-flow: row nowrap;
-  align-items: flex-start;
   max-width: 70%;
-
-  height: 400px;
+  align-items: stretch;
 }
 
 .movie-page img {
   max-width: 270px;
-  height: 100%;
   border-radius: 4px;
 }
 
@@ -119,8 +116,6 @@ nav a {
 
 .movie-page-info {
   padding-left: 20px;
-  height: 100%;
-  overflow: hidden;
   display: flex;
   flex-flow: column wrap;
 }
@@ -132,9 +127,9 @@ nav a {
 
 @media only screen and (max-width: 1100px) {
   .movie-card {
-    flex: 0 0 90%;
+    flex: 0 0 80%;
     margin: 0 auto;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
   }
 
   .movie-card img {
@@ -157,7 +152,19 @@ nav a {
     flex: 0 0 80%;
     margin: 0 auto;
 
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+  }
+
+  .movie-card img {
+    max-height: 250px;
+  }
+
+  .movie-card h2 {
+    font-size: 0.9rem;
+  }
+
+  .movie-card p {
+    font-size: 0.7rem;
   }
 
   .movie-page > img {
